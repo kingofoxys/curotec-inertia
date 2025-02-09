@@ -13,5 +13,6 @@
 
   <body class="font-sans antialiased">
     @inertia
+    ALGO
   </body>
 </html>

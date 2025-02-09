@@ -9,20 +9,20 @@ services:
       - ./:/var/www
       - ./docker/custom.ini:/usr/local/etc/php/conf.d/custom.ini
     environment:
-      - "DB_PORT=3308"  # Puerto corregido
+      - "DB_PORT=3308"
       - "DB_HOST=testinertiadb"
     networks:
       - testinertianetwork
     restart: on-failure
 
   # The Web Server
-  testinertiaweb:  # Nombre corregido
+  testinertiaweb:
     build:
       context: ./
       dockerfile: ./docker/web.dockerfile
     working_dir: /var/www
     volumes:
-      - ./:/var/www  # Se reemplazó volumes_from
+      - ./:/var/www
     ports:
       - "8080:80"
     networks:
@@ -30,17 +30,17 @@ services:
     restart: on-failure
 
   # The Database
-  testinertiadb:  # Nombre corregido
+  testinertiadb:
     image: mysql:8.1
     volumes:
       - ./dbdata:/var/lib/mysql
     environment:
-      - "MYSQL_DATABASE=testintertiadb"
-      - "MYSQL_USER=testintertiauser"
-      - "MYSQL_PASSWORD=testintertiasecret"
-      - "MYSQL_ROOT_PASSWORD=testintertiasecret"
+      - "MYSQL_DATABASE=testinertiadb"
+      - "MYSQL_USER=testinertiauser"
+      - "MYSQL_PASSWORD=testinertiasecret"
+      - "MYSQL_ROOT_PASSWORD=testinertiasecret"
     ports:
-      - "3308:3308"  # Se mantiene 3308, asegurando que la app lo use
+      - "3308:3308"
     command: ['mysqld', '--character-set-server=utf8mb4', '--collation-server=utf8mb4_unicode_ci', '--port=3308']
     networks:
       - testinertianetwork
