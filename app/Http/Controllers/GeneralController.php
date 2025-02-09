@@ -10,8 +10,9 @@ class GeneralController extends Controller
 {
     public function index()
     {
-        return Inertia::render('YourComponent', [
-            'data' => BookCatalogs::all(),
+        header('Access-Control-Allow-Origin: *');
+        return Inertia::render('Pages/BookCatalog/Index', [
+            'bookCatalogs' => BookCatalogs::all(),
         ]);
     }
 }

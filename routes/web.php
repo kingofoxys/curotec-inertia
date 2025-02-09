@@ -13,4 +13,4 @@ use App\Http\Controllers\GeneralController;
 |
 */
 
-Route::get('/', [GeneralController::class, 'index'])->name('home');
+Route::get('/', [GeneralController::class, 'index'])->name('book-catalogs.index');

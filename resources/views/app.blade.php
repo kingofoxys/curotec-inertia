@@ -8,11 +8,10 @@
     <title inertia>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    @vite('resources/js/app.js') @inertiaHead
+    @vite(['resources/js/app.js']) @inertiaHead
   </head>
 
   <body class="font-sans antialiased">
     @inertia
-    ALGO
   </body>
 </html>
